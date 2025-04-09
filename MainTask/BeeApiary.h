@@ -10,6 +10,9 @@ class Bee
 		bool in_hive;
 		string health;
 		int lifetime;
+		int age;
+		double honeyProduced;
+		double dailyHoney;
 			
 		
 		string getString()
@@ -18,9 +21,28 @@ class Bee
 			s += ", behavior: " + behavior
 				+ ",is in hive: " + (in_hive ? "yes" : "no")
 				+ ", health: " + health
-				+ ", lifetime: " + to_string(lifetime) + " days";
+				+ ", lifetime: " + to_string(lifetime) + " days"
+				+ ", age:" + to_string(age) + " days"
+				+ ", produced honey: " + to_string(getHoney());
+			
+				
 
 			return s;
 		}
+
+		double getHoney()
+		{
+			for (int i = age; i >= 10; i--)
+			{
+				honeyProduced += dailyHoney;
+
+			}
+			
+			return honeyProduced;
+		}
+
+		
+
+
 
 };
