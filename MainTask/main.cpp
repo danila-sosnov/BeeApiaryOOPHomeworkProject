@@ -3,6 +3,7 @@
 int main()
 {
 	Bee b1, b2;
+	
 
 	b1.type = "worker";
 	b1.behavior = "active";
@@ -22,8 +23,21 @@ int main()
 	b2.dailyHoney = 0.0;
 	b2.honeyProduced = 0.0;
 	
+	cout << "Before: " << endl;
 	cout << b1.getString() << endl;
-	cout << b2.getString() << endl;
+	
+
+	b1.changeObjectByValue(b1);
+
+	cout << "After changeObjectByValue: " << endl;
+	cout << b1.getString() << endl;
+
+	b1.changeObjectByReference(b1);
+
+	cout << "After changeObjectByReference: " << endl;
+	cout << b1.getString() << endl;
+
+	
 
 	
 	
