@@ -24,8 +24,8 @@ class Bee
 				+ ", lifetime: " + to_string(lifetime) + " days"
 				+ ", age:" + to_string(age) + " days"
 				+ ", produced honey: " + to_string(getHoney());
-			
-				
+
+
 
 			return s;
 		}
@@ -41,8 +41,22 @@ class Bee
 			return honeyProduced;
 		}
 
+		void changeObjectByValue(Bee b1)
+		{
+				
+			b1.age += 5;
+			
+		}
+
+		void changeObjectByReference(Bee& b1)
+		{
+					
+				b1.age += 5;
+			
+		}
+
 		
 
-
+		
 
 };
