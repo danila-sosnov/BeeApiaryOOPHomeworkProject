@@ -4,22 +4,28 @@ int main()
 {
 	Bee b1, b2;
 
-	cout << "Input bee type(worker, male bee, queen bee)" << endl;
-		cin >> b1.type >> b2.type;
+	b1.type = "worker";
+	b1.behavior = "active";
+	b1.in_hive = false;
+	b1.health = "healthy";
+	b1.lifetime = 31;
 
-	cout << "Input bee behavior(agressive, active)" << endl;
-		cin >> b1.behavior >> b2.behavior;
+	b2.type = "male bee";
+	b2.behavior = "agressive";
+	b2.in_hive = true;
+	b2.health = "sick";
+	b2.lifetime = 21;
 
-	cout << "Is the bee in the hive?" << endl;
-		cin >> b1.in_hive >> b2.in_hive;
+	cout << "Before: " << endl;
+	cout << b1.getString() << endl;
+	cout << b2.getString() << endl;
 
-	cout << "Input bee health(healthy, sick)" << endl;
-		cin >> b1.health >> b2.health;
+	b1 = b2;
 
-	cout << "Input bee lifetime(in days)" << endl;
-		cin >> b1.lifetime >> b2.lifetime;
+	cout << "After: " << endl;
+	cout << b1.getString() << endl;
+	cout << b2.getString() << endl;
 
-		
 
 
 }
