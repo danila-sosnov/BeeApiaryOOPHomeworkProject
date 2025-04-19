@@ -27,15 +27,12 @@ int main()
 	cout << b1.getString() << endl;
 	
 
-	b1.changeObjectByValue(b1);
+	b1.changeObjectByValue();
 
 	cout << "After changeObjectByValue: " << endl;
 	cout << b1.getString() << endl;
 
-	b1.changeObjectByReference(b1);
-
-	cout << "After changeObjectByReference: " << endl;
-	cout << b1.getString() << endl;
+	
 
 	
 
