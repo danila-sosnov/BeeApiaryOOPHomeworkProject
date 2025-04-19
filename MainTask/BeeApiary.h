@@ -41,22 +41,13 @@ class Bee
 			return honeyProduced;
 		}
 
-		void changeObjectByValue(Bee b1)
+		void changeObjectByValue()
 		{
 				
-			b1.age += 5;
+			age += 5;
 			
 		}
-
-		void changeObjectByReference(Bee& b1)
-		{
-					
-				b1.age += 5;
-			
-		}
-
 		
-
 		
 
 };
