@@ -2,45 +2,20 @@
 
 int main()
 {
-	Bee b1, b2;
 	
-
-	b1.type = "worker";
-	b1.behavior = "active";
-	b1.in_hive = false;
-	b1.health = "healthy";
-	b1.lifetime = 35;
-	b1.age = 14;
-	b1.dailyHoney = 0.1;
-	b1.honeyProduced = 0.0;
-
-	b2.type = "drone";
-	b2.behavior = "agressive";
-	b2.in_hive = true;
-	b2.health = "sick";
-	b2.lifetime = 60;
-	b2.age = 34;
-	b2.dailyHoney = 0.0;
-	b2.honeyProduced = 0.0;
-	
-	cout << "Before: " << endl;
-	cout << b1.getString() << endl;
-	
-
-	b1.changeObjectByValue();
-
-	cout << "After changeObjectByValue: " << endl;
-	cout << b1.getString() << endl;
-
-	
-
-	
-
+	Bee b1;
+	Bee b2("drone");
+	Bee b3("queen", 720);
+	Bee b4("worker", "active", false, "healthy", 35, 14, 0.0, 0.1);
+	Bee b5(b4);
 	
 	
+	cout << b1.toString() << endl;
+	cout << b2.toString() << endl;
+	cout << b3.toString() << endl;
+	cout << b4.toString() << endl;
+	cout << b5.toString() << endl;
 
-	
 
-
-
+	return 0;
 }

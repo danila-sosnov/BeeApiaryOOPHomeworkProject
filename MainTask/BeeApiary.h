@@ -15,7 +15,72 @@ class Bee
 		double dailyHoney;
 			
 		
-		string getString()
+		Bee()
+		{
+			type = "worker";
+			behavior = "idle";
+			in_hive = true;
+			health = "healthy";
+			lifetime = 35;
+			age = 1;
+			honeyProduced = 0.0;
+			dailyHoney = 0.1;
+		}
+
+		Bee(string tp)
+		{
+			type = tp;
+			behavior = "idle";
+			in_hive = true;
+			health = "healthy";
+			lifetime = 35;
+			age = 1;
+			honeyProduced = 0.0;
+			dailyHoney = 0.1;
+		}
+
+		Bee(string tp, int a)
+		{
+			type = tp;
+			behavior = "idle";
+			in_hive = true;
+			health = "healthy";
+			lifetime = 35;
+			age = a;
+			honeyProduced = 0.0;
+			dailyHoney = 0.1;
+		}
+
+		Bee(string tp, string bh, bool in_hv, string hp, int lf, int a, int hnProduced, int dlHoney)
+		{
+			type = tp;
+			behavior = bh;
+			in_hive = in_hv;
+			health = hp;
+			lifetime = lf;
+			age = a;
+			honeyProduced = hnProduced;
+			dailyHoney = dlHoney;
+		}
+
+		Bee(const Bee& bee)
+		{
+			type = bee.type;
+			behavior = bee.behavior;
+			in_hive = bee.in_hive;
+			health = bee.health;
+			lifetime = bee.lifetime;
+			age = bee.age;
+			honeyProduced = bee.honeyProduced;
+			dailyHoney = bee.dailyHoney;
+		}
+
+		~Bee()
+		{
+
+		}
+
+		string toString()
 		{
 			string s = "Type: " + type;
 			s += ", behavior: " + behavior
@@ -39,15 +104,6 @@ class Bee
 			}
 			
 			return honeyProduced;
-		}
-
-		void changeObjectByValue()
-		{
-				
-			age += 5;
-			
-		}
-		
-		
+		}		
 
 };
