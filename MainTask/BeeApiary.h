@@ -15,64 +15,33 @@ class Bee
 		double dailyHoney;
 			
 		
-		Bee()
+		Bee() : Bee("worker", "idle", true, "healthy", 35, 1, 0.0, 0.1)
 		{
-			type = "worker";
-			behavior = "idle";
-			in_hive = true;
-			health = "healthy";
-			lifetime = 35;
-			age = 1;
-			honeyProduced = 0.0;
-			dailyHoney = 0.1;
+			
 		}
 
-		Bee(string tp)
+		Bee(string tp, int a) : Bee(type, "idle", true, "healthy", 35, age, 0.0, 0.1)
 		{
-			type = tp;
-			behavior = "idle";
-			in_hive = true;
-			health = "healthy";
-			lifetime = 35;
-			age = 1;
-			honeyProduced = 0.0;
-			dailyHoney = 0.1;
+			
 		}
 
-		Bee(string tp, int a)
+		Bee(string type, string behaviour, bool in_hive, string health, int lifetime, int age, double honeyProduced, double dailyHoney)
 		{
-			type = tp;
-			behavior = "idle";
-			in_hive = true;
-			health = "healthy";
-			lifetime = 35;
-			age = a;
-			honeyProduced = 0.0;
-			dailyHoney = 0.1;
+			this->type = type;
+			this->behavior = behaviour;
+			this->in_hive = in_hive;
+			this->health = health;
+			this->lifetime = lifetime;
+			this->age = age;
+			this->honeyProduced = honeyProduced;
+			this->dailyHoney = dailyHoney;
 		}
 
-		Bee(string tp, string bh, bool in_hv, string hp, int lf, int a, int hnProduced, int dlHoney)
+		Bee(const Bee& bee) : Bee(bee.type, bee.behavior, bee.in_hive,
+			bee.health, bee.lifetime, bee.age, bee.honeyProduced,
+			 bee.dailyHoney)
 		{
-			type = tp;
-			behavior = bh;
-			in_hive = in_hv;
-			health = hp;
-			lifetime = lf;
-			age = a;
-			honeyProduced = hnProduced;
-			dailyHoney = dlHoney;
-		}
-
-		Bee(const Bee& bee)
-		{
-			type = bee.type;
-			behavior = bee.behavior;
-			in_hive = bee.in_hive;
-			health = bee.health;
-			lifetime = bee.lifetime;
-			age = bee.age;
-			honeyProduced = bee.honeyProduced;
-			dailyHoney = bee.dailyHoney;
+			
 		}
 
 		~Bee()
@@ -82,12 +51,12 @@ class Bee
 
 		string toString()
 		{
-			string s = "Type: " + type;
-			s += ", behavior: " + behavior
-				+ ",is in hive: " + (in_hive ? "yes" : "no")
-				+ ", health: " + health
-				+ ", lifetime: " + to_string(lifetime) + " days"
-				+ ", age:" + to_string(age) + " days"
+			string s = "Type: " + this->type;
+			s += ", behavior: " + this->behavior
+				+ ",is in hive: " + (this->in_hive ? "yes" : "no")
+				+ ", health: " + this->health
+				+ ", lifetime: " + to_string(this->lifetime) + " days"
+				+ ", age:" + to_string(this->age) + " days"
 				+ ", produced honey: " + to_string(getHoney());
 
 
