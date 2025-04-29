@@ -1,17 +1,22 @@
-#include "BeeApiary.h"
+#include "Initializer.h"
 
 int main()
 {
 	
-	Bee b1;
-	Bee b3("worker", "active", false, "healthy", 35, 14, 0.0, 0.1);
-	Bee b4(b3);
-	
-	
-	cout << b1.toString() << endl;
-	cout << b3.toString() << endl;
-	cout << b4.toString() << endl;
+	Bee* list = nullptr;
+	Initializer initializer;
 
+	int count;
+
+	cout << "Input number of bees: ";
+	cin >> count;
+
+	initializer.init(list, count);
+
+	for (int i = 0; i < count; i++)
+	{
+		cout << list[i].toString() << endl;
+	}
 
 
 	return 0;

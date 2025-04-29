@@ -57,7 +57,9 @@ class Bee
 				+ ", health: " + this->health
 				+ ", lifetime: " + to_string(this->lifetime) + " days"
 				+ ", age:" + to_string(this->age) + " days"
-				+ ", produced honey: " + to_string(getHoney());
+				+ ", daily honey: " + to_string(this->dailyHoney)
+				+ " ---------> "
+				+ "produced honey: " + to_string(getHoney());
 
 
 
