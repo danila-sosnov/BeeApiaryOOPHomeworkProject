@@ -17,9 +17,9 @@ public:
 
 		string types[]{ "worker", "drone", "queen", "guard" };
 		string behaviours[]{ "idle", "working", "defending", "feeding",
-		"building", "cleaning"};
-		string healths[]{ "healthy", "sick", "injured", "weak", "dead"};
-		
+		"building", "cleaning" };
+		string healths[]{ "healthy", "sick", "injured", "weak", "dead" };
+
 		int lifetimes[]{ 35, 60, 1800, 35 };
 
 		int minAge = 1;
@@ -40,7 +40,7 @@ public:
 
 			list[i].dailyHoney = 0.2 + (rand() % 1801) / 1000.0;
 
-			
+
 
 		}
 	}
