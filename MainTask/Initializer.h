@@ -9,7 +9,7 @@ public:
 	{
 		srand(time(nullptr));
 
-		if (list == nullptr || count > 0)
+		if (list == nullptr && count > 0)
 		{
 			list = new Bee[count];
 		}
@@ -20,7 +20,7 @@ public:
 		"building", "cleaning" };
 		string healths[]{ "healthy", "sick", "injured", "weak", "dead" };
 
-		int lifetimes[]{ 35, 60, 1800, 35 };
+		int lifetimes[]{ 35, 60, 1800 };
 
 		int minAge = 1;
 
@@ -28,7 +28,7 @@ public:
 		{
 			list[i].type = types[rand() % 3];
 
-			list[i].lifetime = lifetimes[rand() % 3];
+			list[i].lifetime = lifetimes[rand() % 2];
 
 			list[i].age = rand() % (list[i].lifetime - minAge + 1) + minAge;
 
@@ -38,10 +38,18 @@ public:
 
 			list[i].health = healths[rand() % 4];
 
-			list[i].dailyHoney = 0.2 + (rand() % 1801) / 1000.0;
+			
+			for (int j = 0; j < list[i].lifetime; j++)
+			{
+				if (j < list[i].age)
+				{
+					list[i].dailyHoneyHistory[j] = 0.2 + (rand() % 1801) / 1000.0;
+				}
+				
+								
+			}
 
-
-
+			
 		}
 	}
 };

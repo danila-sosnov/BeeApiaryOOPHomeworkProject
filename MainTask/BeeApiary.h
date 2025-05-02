@@ -21,7 +21,7 @@ public:
 
 	}
 
-	Bee(string tp, int a) : Bee(type, "idle", true, "healthy", 35, age, 0.0, 0.1)
+	Bee(string type, int age) : Bee(type, "idle", true, "healthy", 35, age, 0.0, 0.1)
 	{
 
 	}
@@ -55,7 +55,7 @@ public:
 
 	~Bee()
 	{
-		delete this->dailyHoneyHistory;
+		delete[] this->dailyHoneyHistory;
 	}
 
 	string toString()
@@ -66,7 +66,7 @@ public:
 			+ ", health: " + this->health
 			+ ", lifetime: " + to_string(this->lifetime) + " days"
 			+ ", age:" + to_string(this->age) + " days"
-			+ ", daily honey: " + to_string(this->dailyHoney)
+			+ ", daily honey: " + "\n" + this->convert()
 			+ " ---------> "
 			+ "produced honey: " + to_string(getHoney());
 
@@ -79,16 +79,16 @@ public:
 	{
 		string s = "[";
 
-		if (this->lifetime > 0)
+		if (this->age > 0)
 		{
-			for (int i = 0; i < this->lifetime - 1; i++)
+			for (int i = 0; i < this->age - 1; i++)
 			{
 				s += to_string(this->dailyHoneyHistory[i]) + ", ";
 			}
 
-			s += to_string(this->dailyHoneyHistory[this->lifetime - 1]);
+			s += to_string(this->dailyHoneyHistory[this->age - 1]);
 		}
-
+		
 		s += "]";
 
 		return s;
@@ -97,13 +97,15 @@ public:
 
 	double getHoney()
 	{
-		for (int i = age; i >= 10; i--)
+		double total = 0.0;
+
+		for (int i = 0; i < this->age; i++)
 		{
-			honeyProduced += dailyHoney;
+			total += this->dailyHoneyHistory[i];
 
 		}
 
-		return honeyProduced;
+		return total;
 	}
 
 };
