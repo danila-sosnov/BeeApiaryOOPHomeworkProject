@@ -26,24 +26,23 @@ public:
 
 		for (int i = 0; i < count; i++)
 		{
-			list[i].type = types[rand() % 3];
+			list[i].setType(types[rand() % 3]);
 
-			list[i].lifetime = lifetimes[rand() % 2];
+			list[i].setLifetime(lifetimes[rand() % 2]);
 
-			list[i].age = rand() % (list[i].lifetime - minAge + 1) + minAge;
+			list[i].setAge(rand() % (list[i].getLifetime() - minAge + 1) + minAge);
 
-			list[i].in_hive = rand() % 2;
+			list[i].setInHive(rand() % 2);
 
-			list[i].behavior = behaviours[rand() % 5];
+			list[i].setBehavior(behaviours[rand() % 5]);
 
-			list[i].health = healths[rand() % 4];
+			list[i].setHealth(healths[rand() % 4]);
 
-			
-			for (int j = 0; j < list[i].lifetime; j++)
+			for (int j = 0; j < list[i].getLifetime(); j++)
 			{
-				if (j < list[i].age)
+				if (j < list[i].getAge())
 				{
-					list[i].dailyHoneyHistory[j] = 0.2 + (rand() % 1801) / 1000.0;
+					list[i].setDailyHoney(j, 0.2 + (rand() % 1801) / 1000.0);
 				}
 				
 								

@@ -4,108 +4,48 @@ using namespace std;
 
 class Bee
 {
-public:
+private:
 	string type;
 	string behavior;
 	bool in_hive;
 	string health;
 	int lifetime;
 	int age;
-	double honeyProduced;
-	double dailyHoney;
 	double* dailyHoneyHistory;
 
+	string convert();
 
-	Bee() : Bee("worker", "idle", true, "healthy", 35, 1, 0.0, 0.1)
-	{
+public:
 
-	}
 
-	Bee(string type, int age) : Bee(type, "idle", true, "healthy", 35, age, 0.0, 0.1)
-	{
+	Bee() : Bee("worker", "idle", true, "healthy", 35, 1) {}
+	Bee(string type, int age) : Bee(type, "idle", true, "healthy", 35, age) {}
+	Bee(string type, string behaviour, bool in_hive, string health, int lifetime, int age);
+	Bee(const Bee& bee);
+	~Bee();
 
-	}
-
-	Bee(string type, string behaviour, bool in_hive, string health, int lifetime, int age, double honeyProduced, double dailyHoney)
-	{
-		this->type = type;
-		this->behavior = behaviour;
-		this->in_hive = in_hive;
-		this->health = health;
-		this->lifetime = lifetime;
-		this->age = age;
-		this->honeyProduced = honeyProduced;
-		this->dailyHoney = dailyHoney;
-		dailyHoneyHistory = new double[lifetime];
-		for (int i = 0; i < lifetime; i++)
-		{
-			dailyHoneyHistory[i] = 0.0;
-		}
-	}
-
-	Bee(const Bee& bee) : Bee(bee.type, bee.behavior, bee.in_hive,
-		bee.health, bee.lifetime, bee.age, bee.honeyProduced,
-		bee.dailyHoney)
-	{
-		for (int i = 0; i < lifetime; i++)
-		{
-			dailyHoneyHistory[i] = bee.dailyHoneyHistory[i];
-		}
-	}
-
-	~Bee()
-	{
-		delete[] this->dailyHoneyHistory;
-	}
-
-	string toString()
-	{
-		string s = "Type: " + this->type;
-		s += ", behavior: " + this->behavior
-			+ ",is in hive: " + (this->in_hive ? "yes" : "no")
-			+ ", health: " + this->health
-			+ ", lifetime: " + to_string(this->lifetime) + " days"
-			+ ", age:" + to_string(this->age) + " days"
-			+ ", daily honey: " + "\n" + this->convert()
-			+ " ---------> "
-			+ "produced honey: " + to_string(getHoney());
+	string getType();
+	void setType(string type);
+	string getBehavior();
+	void setBehavior(string behavior);
+	bool isInHive();
+	void setInHive(bool in_hive);
+	string getHealth();
+	void setHealth(string health);
+	int getLifetime();
+	void setLifetime(int lifeTime);
+	int getAge();
+	void setAge(int age);
+	double getDailyHoney(int index);
+	void setDailyHoney(int index, double dailyHoney);
+	double* getDailyHoneyHistory();
+	void setDailyHoneyHistory(double* dailyHoneyHistory, int lifetime);
 
 
 
-		return s;
-	}
-
-	string convert()
-	{
-		string s = "[";
-
-		if (this->age > 0)
-		{
-			for (int i = 0; i < this->age - 1; i++)
-			{
-				s += to_string(this->dailyHoneyHistory[i]) + ", ";
-			}
-
-			s += to_string(this->dailyHoneyHistory[this->age - 1]);
-		}
+	
 		
-		s += "]";
-
-		return s;
-
-	}
-
-	double getHoney()
-	{
-		double total = 0.0;
-
-		for (int i = 0; i < this->age; i++)
-		{
-			total += this->dailyHoneyHistory[i];
-
-		}
-
-		return total;
-	}
-
+	string toString();
+	double getHoney();
+	
 };
