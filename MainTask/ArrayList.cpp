@@ -67,7 +67,7 @@ void ArrayList::addAll(int* elements, int size)
 		add(elements[i]);
 	}
 }
-void ArrayList::revome()
+void ArrayList::remove()
 {
 	remove(size - 1);
 }

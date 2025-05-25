@@ -1,4 +1,4 @@
-#include "BeeApiary.h"
+#include "Bee.h"
 
 
 string Bee::convert()

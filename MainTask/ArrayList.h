@@ -16,7 +16,7 @@ public:
 	void add(int element);
 	void add(int index, int element);
 	void addAll(int* elements, int size);
-	void revome();
+	void remove();
 	void remove(int index);
 	void clear();
 	bool isEmpty();

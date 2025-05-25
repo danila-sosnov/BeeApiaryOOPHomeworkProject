@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="BeeApiary.cpp">
+    <ClCompile Include="Bee.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
     <ClCompile Include="Initializer.cpp">
@@ -27,9 +27,12 @@
     <ClCompile Include="ArrayList.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="Hive.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BeeApiary.h">
+    <ClInclude Include="Bee.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Initializer.h">
@@ -39,6 +42,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Hive.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

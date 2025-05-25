@@ -128,13 +128,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ArrayList.cpp" />
-    <ClCompile Include="BeeApiary.cpp" />
+    <ClCompile Include="Bee.cpp" />
+    <ClCompile Include="Hive.cpp" />
     <ClCompile Include="Initializer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayList.h" />
-    <ClInclude Include="BeeApiary.h" />
+    <ClInclude Include="Bee.h" />
+    <ClInclude Include="Hive.h" />
     <ClInclude Include="Initializer.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

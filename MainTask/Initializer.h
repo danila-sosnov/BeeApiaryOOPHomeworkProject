@@ -1,4 +1,4 @@
-#include "BeeApiary.h"
+#include "Bee.h"
 #include <time.h>
 
 class Initializer
