@@ -6,6 +6,12 @@ Hive::Hive()
 	count = 0;
 }
 
+Hive::Hive(int count)
+{
+	this->count = count;
+	list = new Bee[count];
+}
+
 Hive::Hive(Bee* list, int count)
 {
 

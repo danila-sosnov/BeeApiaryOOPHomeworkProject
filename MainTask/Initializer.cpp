@@ -1,12 +1,12 @@
 #include "Initializer.h"
 
-	void Initializer::init(Bee*& list, int count)
+	void Initializer::init(Hive hive)
 	{
 		srand(time(nullptr));
 
-		if (list == nullptr && count > 0)
+		if (hive.getCount() <= 0 )
 		{
-			list = new Bee[count];
+			return;
 		}
 
 
@@ -19,25 +19,25 @@
 
 		int minAge = 1;
 
-		for (int i = 0; i < count; i++)
+		for (int i = 0; i < hive.getCount(); i++)
 		{
-			list[i].setType(types[rand() % 3]);
+			hive.get(i).setType(types[rand() % 3]);
 
-			list[i].setLifetime(lifetimes[rand() % 2]);
+			hive.get(i).setLifetime(lifetimes[rand() % 2]);
 
-			list[i].setAge(rand() % (list[i].getLifetime() - minAge + 1) + minAge);
+			hive.get(i).setAge(rand() % (hive.get(i).getLifetime() - minAge + 1) + minAge);
 
-			list[i].setInHive(rand() % 2);
+			hive.get(i).setInHive(rand() % 2);
 
-			list[i].setBehavior(behaviours[rand() % 5]);
+			hive.get(i).setBehavior(behaviours[rand() % 5]);
 
-			list[i].setHealth(healths[rand() % 4]);
+			hive.get(i).setHealth(healths[rand() % 4]);
 
-			for (int j = 0; j < list[i].getLifetime(); j++)
+			for (int j = 0; j < hive.get(i).getLifetime(); j++)
 			{
-				if (j < list[i].getAge())
+				if (j < hive.get(i).getAge())
 				{
-					list[i].setDailyHoney(j, 0.2 + (rand() % 1801) / 1000.0);
+					hive.get(i).setDailyHoney(j, 0.2 + (rand() % 1801) / 1000.0);
 				}
 
 

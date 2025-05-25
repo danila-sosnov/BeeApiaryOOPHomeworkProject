@@ -1,9 +1,9 @@
 #include "Initializer.h"
 
+
 int main()
 {
 	
-	Bee* list = nullptr;
 	Initializer initializer;
 
 	int count;
@@ -11,13 +11,11 @@ int main()
 	cout << "Input number of bees: ";
 	cin >> count;
 
-	initializer.init(list, count);
+	Hive hive(count);
 
-	for (int i = 0; i < count; i++)
-	{
-		cout << list[i].toString() << endl;
-	}
+	initializer.init(hive);
 
+	cout << "List of bees:\n" << hive.toString() << endl;
 
 	return 0;
 }

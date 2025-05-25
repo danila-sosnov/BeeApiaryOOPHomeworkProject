@@ -10,6 +10,7 @@ private:
 public:
 
 	Hive();
+	Hive(int count);
 	Hive(Bee* list, int count);
 	~Hive();
 
