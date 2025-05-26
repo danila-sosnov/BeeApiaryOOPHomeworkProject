@@ -1,10 +1,10 @@
 #include "Initializer.h"
 
-	void Initializer::init(Hive hive)
+	void Initializer::init(Hive& hive)
 	{
 		srand(time(nullptr));
 
-		if (hive.getCount() <= 0 )
+		if (hive.getCapacity() <= 0 )
 		{
 			return;
 		}

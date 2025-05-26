@@ -1,15 +1,12 @@
 #include "Hive.h"
 
-Hive::Hive()
-{
-	list = nullptr;
-	count = 0;
-}
+Hive::Hive() : Hive(20){}
 
-Hive::Hive(int count)
+Hive::Hive(int capacity)
 {
-	this->count = count;
-	list = new Bee[count];
+	this->capacity = capacity;
+	list = new Bee[capacity];
+	count = capacity;
 }
 
 Hive::Hive(Bee* list, int count)
@@ -18,7 +15,7 @@ Hive::Hive(Bee* list, int count)
 	if (count > 0 && list != nullptr)
 	{
 		this->count = count;
-		list = new Bee[count];
+		this->list = new Bee[count];
 
 		for (int i = 0; i < count; i++)
 		{
@@ -36,7 +33,7 @@ Hive::~Hive()
 	}
 }
 
-Bee Hive::get(int index)
+Bee& Hive::get(int index)
 {
 	if (count > 0 && index >= 0 && index < count)
 	{
@@ -56,7 +53,7 @@ int Hive::getCount()
 }
 void Hive::add(Bee bee)
 {
-	if (list != nullptr && count > 0)
+	if (list != nullptr && count < capacity)
 	{
 		list[count] = bee;
 		count++;
@@ -120,4 +117,9 @@ string Hive::toString()
 	}
 
 	return s;
+}
+
+int Hive::getCapacity()
+{
+	return capacity;
 }

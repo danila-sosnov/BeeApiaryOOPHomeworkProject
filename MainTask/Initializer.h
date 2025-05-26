@@ -5,6 +5,6 @@ class Initializer
 {
 public:
 
-	void init(Hive hive);
+	void init(Hive& hive);
 	
 };
