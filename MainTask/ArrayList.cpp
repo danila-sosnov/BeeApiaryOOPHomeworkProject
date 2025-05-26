@@ -10,39 +10,39 @@ ArrayList::~ArrayList()
 	clear();
 }
 
-void ArrayList::add(int element)
+void ArrayList::add(Bee bee)
 {
 	if (isEmpty()) {
 		size = 1;
-		list = new int[size];
-		list[0] = element;
+		list = new Bee[size];
+		list[0] = bee;
 	}
 	else {
-		int* temp = new int[size + 1];
+		Bee* temp = new Bee[size + 1];
 		for (int i = 0; i < size; i++)
 		{
 			temp[i] = list[i];
 		}
 
-		temp[size] = element;
+		temp[size] = bee;
 		delete[] list;
 		list = temp;
 		size++;
 	}
 }
-void ArrayList::add(int index, int element)
+void ArrayList::add(int index, Bee bee)
 {
 	if (isEmpty()) {
 		size = 1;
-		list = new int[size];
-		list[0] = element;
+		list = new Bee[size];
+		list[0] = bee;
 	}
 	else if (index < 0 || index >= size) {
 		return;
 	}
 	else {
 		size++;
-		int* temp = new int[size];
+		Bee* temp = new Bee[size];
 
 		for (int i = 0, j = 0; j < size; j++)
 		{
@@ -51,7 +51,7 @@ void ArrayList::add(int index, int element)
 				i++;
 			}
 			else {
-				temp[j] = element;
+				temp[j] = bee;
 			}
 		}
 
@@ -60,11 +60,11 @@ void ArrayList::add(int index, int element)
 		size++;
 	}
 }
-void ArrayList::addAll(int* elements, int size)
+void ArrayList::addAll(Bee* bees, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		add(elements[i]);
+		add(bees[i]);
 	}
 }
 void ArrayList::remove()
@@ -75,7 +75,7 @@ void ArrayList::remove(int index)
 {
 	if (!isEmpty()) {
 		size--;
-		int* temp = new int[size];
+		Bee* temp = new Bee[size];
 
 		for (int i = 0, j = 0; i < size; i++)
 		{
@@ -100,18 +100,18 @@ bool ArrayList::isEmpty()
 {
 	return size == 0;
 }
-int ArrayList::get(int index)
+Bee ArrayList::get(int index)
 {
 	if (!isEmpty() && index >= 0 && index < size) {
 		return list[index];
 	}
 
-	return 0;
+	return Bee();
 }
-void ArrayList::set(int index, int element)
+void ArrayList::set(int index, Bee bee)
 {
 	if (!isEmpty() && index >= 0 && index < size) {
-		list[index] = element;
+		list[index] = bee;
 	}
 }
 int ArrayList::getSize()
@@ -127,7 +127,7 @@ string ArrayList::toString()
 
 		for (int i = 0; i < size; i++)
 		{
-			s += to_string(list[i]) + " ";
+			s += list[i].toString() + " ";
 		}
 	}
 

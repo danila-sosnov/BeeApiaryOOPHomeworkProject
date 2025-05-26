@@ -1,12 +1,13 @@
 #include "Hive.h"
 
-Hive::Hive() : Hive(20){}
+Hive::Hive() {}
 
-Hive::Hive(int capacity)
+Hive::Hive(int count)
 {
-	this->capacity = capacity;
-	list = new Bee[capacity];
-	count = capacity;
+	for (int i = 0; i < count; i++)
+	{
+		list.add(Bee());
+	}
 }
 
 Hive::Hive(Bee* list, int count)
@@ -14,12 +15,10 @@ Hive::Hive(Bee* list, int count)
 
 	if (count > 0 && list != nullptr)
 	{
-		this->count = count;
-		this->list = new Bee[count];
-
+		
 		for (int i = 0; i < count; i++)
 		{
-			this->list[i] = list[i];
+			add(list[i]);
 		}
 	}
 	
@@ -27,99 +26,52 @@ Hive::Hive(Bee* list, int count)
 }
 Hive::~Hive()
 {
-	if (list != nullptr)
-	{
-		delete[] list;
-	}
+	clear();
 }
 
-Bee& Hive::get(int index)
+Bee Hive::get(int index)
 {
-	if (count > 0 && index >= 0 && index < count)
-	{
-		return list[index];
-	}
+	return list.get(index);
 }
+
 void Hive::set(int index, Bee bee)
 {
-	if (count > 0 && index >= 0 && index < count)
-	{
-		list[index] = bee;
-	}
-}
-int Hive::getCount()
-{
-	return count;
-}
-void Hive::add(Bee bee)
-{
-	if (list != nullptr && count < capacity)
-	{
-		list[count] = bee;
-		count++;
-	}
-}
-void Hive::remove(Bee bee)
-{
-	for (int i = 0; i < count; i++)
-	{
-		if (list[i].getType() == bee.getType()
-			&& list[i].getAge() == bee.getAge()
-			&& list[i].getBehavior() == bee.getBehavior()
-			&& list[i].isInHive() == bee.isInHive()
-			&& list[i].getHealth() == bee.getHealth()
-			&& list[i].getLifetime() == bee.getLifetime())
-		{
-			for (int j = i + 1; j < count; j++)
-			{
-				list[j - 1] = list[j];
-			}
-			count--;
-			break;
-		}
-			 
-	}
+	list.set(index, bee);
 }
 
+int Hive::getCount()
+{
+	return list.getSize();
+}
+
+void Hive::add(Bee bee)
+{
+	list.add(bee);
+}
+
+void Hive::remove(Bee bee)
+{	
+	list.remove();	
+}
 
 void Hive::remove(int index)
 {
-
-	for (int i = index + 1; i < count; i++)
-	{
-		list[i - 1] = list[i];
-		count--;
-		break;
-	}
+	list.remove(index);
 }
+
 void Hive::clear()
 {
-	count = 0;
+	list.clear();
 }
+
 bool Hive::isEmpty()
 {
-	return count == 0;
+	return list.isEmpty();
 }
+
 string Hive::toString()
 {
-	string s = "";
-
-	if (list != nullptr && count > 0)
-	{
-		for (int i = 0; i < count; i++)
-		{
-			s += list[i].toString() + "\n";
-		}
-	}
-	else
-	{
-		s = "List is empty.";
-	}
-
-	return s;
+	return list.toString();
 }
 
-int Hive::getCapacity()
-{
-	return capacity;
-}
+

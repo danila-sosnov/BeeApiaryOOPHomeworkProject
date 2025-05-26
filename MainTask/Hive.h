@@ -1,25 +1,23 @@
-#include "Bee.h"
+#include "ArrayList.h"
+
 class Hive
 {
 
 private:
 
-	Bee* list;
-	int count;
-	int capacity;
-
+	ArrayList list;
+		
 public:
 
 	Hive();
-	Hive(int capacity);
+	Hive(int count = 20);
 	Hive(Bee* list, int count);
 	~Hive();
 
-	Bee& get(int index);
+	Bee get(int index);
 	void set(int index, Bee bee);
-	int getCount();
-	int getCapacity();
 	void add(Bee bee);
+	int getCount();
 	void remove(Bee bee);
 	void remove(int index);
 	void clear();

@@ -1,10 +1,11 @@
 #include "main.h"
+#include "Bee.h"
 class ArrayList
 {
 
 private:
 
-	int* list;
+	Bee* list;
 	int size;
 
 
@@ -13,15 +14,15 @@ public:
 	ArrayList();
 	~ArrayList();
 
-	void add(int element);
-	void add(int index, int element);
-	void addAll(int* elements, int size);
+	void add(Bee bee);
+	void add(int index, Bee bee);
+	void addAll(Bee* bees, int size);
 	void remove();
 	void remove(int index);
 	void clear();
 	bool isEmpty();
-	int get(int index);
-	void set(int index, int element);
+	Bee get(int index);
+	void set(int index, Bee bee);
 	int getSize();
 	string toString();
 

@@ -18,7 +18,7 @@ private:
 public:
 
 
-	Bee() : Bee("worker", "idle", true, "healthy", 35, 1) {}
+	Bee();
 	Bee(string type, int age) : Bee(type, "idle", true, "healthy", 35, age) {}
 	Bee(string type, string behaviour, bool in_hive, string health, int lifetime, int age);
 	Bee(const Bee& bee);

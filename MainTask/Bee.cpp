@@ -21,6 +21,18 @@ string Bee::convert()
 
 }
 
+Bee::Bee()
+{
+	type = "worker";
+	behavior = "idle";
+	in_hive = true;
+	health = "healthy";
+	lifetime = 1;
+	age = 1;
+	dailyHoneyHistory = new double[lifetime];
+	dailyHoneyHistory[0] = 0.0;
+}
+
 string Bee::getType()
 {
 	return type;
@@ -92,8 +104,15 @@ double* Bee::getDailyHoneyHistory()
 
 void Bee::setDailyHoneyHistory(double* dailyHoneyHistory, int lifetime)
 {
-	this->dailyHoneyHistory = dailyHoneyHistory;
+	delete[] this->dailyHoneyHistory;
 	this->lifetime = lifetime;
+
+	this->dailyHoneyHistory = new double[lifetime];
+
+	for (int i = 0; i < lifetime; i++)
+	{
+		this->dailyHoneyHistory[i] = dailyHoneyHistory[i];
+	}
 
 }
 
@@ -128,7 +147,11 @@ void Bee::setDailyHoneyHistory(double* dailyHoneyHistory, int lifetime)
 
 	Bee::~Bee()
 	{
-		delete[] dailyHoneyHistory;
+		if (dailyHoneyHistory != nullptr)
+		{
+			delete[] dailyHoneyHistory;
+		}
+		
 	}
 
 	

@@ -2,9 +2,8 @@
 
 	void Initializer::init(Hive& hive)
 	{
-		srand(time(nullptr));
 
-		if (hive.getCapacity() <= 0 )
+		if (hive.getCount() <= 0 )
 		{
 			return;
 		}
