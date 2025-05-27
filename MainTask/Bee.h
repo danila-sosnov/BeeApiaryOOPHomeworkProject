@@ -19,7 +19,7 @@ public:
 
 
 	Bee();
-	Bee(string type, int age) : Bee(type, "idle", true, "healthy", 35, age) {}
+	Bee(string type, int age) : Bee(type, "idle", true, "healthy", 1, age) {}
 	Bee(string type, string behaviour, bool in_hive, string health, int lifetime, int age);
 	Bee(const Bee& bee);
 	~Bee();

@@ -3,7 +3,7 @@
 
 int main()
 {
-	
+
 	Initializer initializer;
 
 	int count;
@@ -11,7 +11,11 @@ int main()
 	cout << "Input number of bees: ";
 	cin >> count;
 
-	Hive hive(count);
+	Hive hive;
+
+	for (int i = 0; i < count; i++) {
+		hive.add(Bee()); 
+	}
 
 	initializer.init(hive);
 

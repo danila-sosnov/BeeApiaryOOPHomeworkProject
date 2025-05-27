@@ -5,14 +5,14 @@ string Bee::convert()
 {
 	string s = "[";
 
-	if (this->age > 0)
+	if (age > 0 && age <= lifetime)
 	{
-		for (int i = 0; i < this->age - 1; i++)
+		for (int i = 0; i < age - 1; i++)
 		{
-			s += to_string(this->dailyHoneyHistory[i]) + ", ";
+			s += to_string(dailyHoneyHistory[i]) + ", ";
 		}
 
-		s += to_string(this->dailyHoneyHistory[this->age - 1]);
+		s += to_string(dailyHoneyHistory[age - 1]);
 	}
 
 	s += "]";
@@ -31,6 +31,7 @@ Bee::Bee()
 	age = 1;
 	dailyHoneyHistory = new double[lifetime];
 	dailyHoneyHistory[0] = 0.0;
+
 }
 
 string Bee::getType()
@@ -74,13 +75,29 @@ void Bee::setHealth(string health)
 }
 
 int Bee::getLifetime()
-{
-	return lifetime;
+{	
+	return lifetime;	
 }
 
 void Bee::setLifetime(int lifetime)
 {
+
+	if (lifetime <= 0)
+	{
+		return;
+	}
+
+	delete[] dailyHoneyHistory;
+
 	this->lifetime = lifetime;
+	
+	dailyHoneyHistory = new double[lifetime];
+
+	for (int i = 0; i < lifetime; i++)
+	{
+		dailyHoneyHistory[i] = 0.0;
+	}
+	
 }
 
 int Bee::getAge()
@@ -105,6 +122,7 @@ double* Bee::getDailyHoneyHistory()
 void Bee::setDailyHoneyHistory(double* dailyHoneyHistory, int lifetime)
 {
 	delete[] this->dailyHoneyHistory;
+
 	this->lifetime = lifetime;
 
 	this->dailyHoneyHistory = new double[lifetime];
@@ -139,24 +157,17 @@ void Bee::setDailyHoneyHistory(double* dailyHoneyHistory, int lifetime)
 	Bee::Bee(const Bee& bee) : Bee(bee.type, bee.behavior, bee.in_hive,
 		bee.health, bee.lifetime, bee.age)
 	{
-		for (int i = 0; i < lifetime; i++)
-		{
-			dailyHoneyHistory[i] = bee.dailyHoneyHistory[i];
-		}
+		
 	}
 
 	Bee::~Bee()
-	{
-		if (dailyHoneyHistory != nullptr)
-		{
-			delete[] dailyHoneyHistory;
-		}
-		
+	{			
+		delete[] dailyHoneyHistory;		
 	}
 
 	
 
-	string Bee::toString()
+	string Bee::toString() 
 	{
 		string s = "Type: " + this->type;
 		s += ", behavior: " + this->behavior

@@ -2,13 +2,7 @@
 
 Hive::Hive() {}
 
-Hive::Hive(int count)
-{
-	for (int i = 0; i < count; i++)
-	{
-		list.add(Bee());
-	}
-}
+
 
 Hive::Hive(Bee* list, int count)
 {
@@ -29,7 +23,7 @@ Hive::~Hive()
 	clear();
 }
 
-Bee Hive::get(int index)
+Bee& Hive::get(int index)
 {
 	return list.get(index);
 }

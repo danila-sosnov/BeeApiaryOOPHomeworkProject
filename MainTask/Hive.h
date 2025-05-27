@@ -10,11 +10,10 @@ private:
 public:
 
 	Hive();
-	Hive(int count = 20);
 	Hive(Bee* list, int count);
 	~Hive();
 
-	Bee get(int index);
+	Bee& get(int index);
 	void set(int index, Bee bee);
 	void add(Bee bee);
 	int getCount();

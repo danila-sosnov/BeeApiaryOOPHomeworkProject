@@ -2,6 +2,7 @@
 
 	void Initializer::init(Hive& hive)
 	{
+		srand((unsigned)time(0));
 
 		if (hive.getCount() <= 0 )
 		{

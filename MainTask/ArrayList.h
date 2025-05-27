@@ -7,7 +7,7 @@ private:
 
 	Bee* list;
 	int size;
-
+	
 
 public:
 
@@ -15,16 +15,16 @@ public:
 	~ArrayList();
 
 	void add(Bee bee);
-	void add(int index, Bee bee);
+	/*void add(int index, Bee bee);*/
 	void addAll(Bee* bees, int size);
 	void remove();
 	void remove(int index);
 	void clear();
-	bool isEmpty();
-	Bee get(int index);
+	bool isEmpty() const;
+	Bee& get(int index);
 	void set(int index, Bee bee);
-	int getSize();
-	string toString();
+	int getSize() const;
+	string toString() const;
 
 	};
 
