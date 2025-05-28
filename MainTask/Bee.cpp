@@ -226,19 +226,19 @@ void Bee::setDailyHoneyHistory(double* dailyHoneyHistory, int lifetime)
 	{
 		if (this != &other) 
 		{
-			this->type = other.type;
-			this->behavior = other.behavior;
-			this->in_hive = other.in_hive;
-			this->health = other.health;
-			this->lifetime = other.lifetime;
-			this->age = other.age;
+			type = other.type;
+			behavior = other.behavior;
+			in_hive = other.in_hive;
+			health = other.health;
+			lifetime = other.lifetime;
+			age = other.age;
 
-			delete[] this->dailyHoneyHistory;
+			delete[] dailyHoneyHistory;
 
-			this->dailyHoneyHistory = new double[this->lifetime];
-			for (int i = 0; i < this->lifetime; i++)
+			dailyHoneyHistory = new double[lifetime];
+			for (int i = 0; i < lifetime; i++)
 			{
-				this->dailyHoneyHistory[i] = other.dailyHoneyHistory[i];
+				dailyHoneyHistory[i] = other.dailyHoneyHistory[i];
 			}
 		}
 		return *this;
