@@ -180,7 +180,7 @@ void Bee::setDailyHoneyHistory(double* dailyHoneyHistory, int lifetime)
 			+ ", age:" + to_string(this->age) + " days"
 			+ ", daily honey: " + "\n" + this->convert()
 			+ " ----> "
-			+ "produced honey: " + to_string(getHoney()) + "\n";
+			+ "produced honey: " + to_string(getHoney()) + "\n\n";
 
 
 
@@ -222,3 +222,24 @@ void Bee::setDailyHoneyHistory(double* dailyHoneyHistory, int lifetime)
 		dailyHoneyHistory[index] = dailyHoney;
 	}
 
+	Bee& Bee::operator=(const Bee& other)
+	{
+		if (this != &other) 
+		{
+			this->type = other.type;
+			this->behavior = other.behavior;
+			this->in_hive = other.in_hive;
+			this->health = other.health;
+			this->lifetime = other.lifetime;
+			this->age = other.age;
+
+			delete[] this->dailyHoneyHistory;
+
+			this->dailyHoneyHistory = new double[this->lifetime];
+			for (int i = 0; i < this->lifetime; i++)
+			{
+				this->dailyHoneyHistory[i] = other.dailyHoneyHistory[i];
+			}
+		}
+		return *this;
+	}

@@ -22,6 +22,7 @@
 
 		for (int i = 0; i < hive.getCount(); i++)
 		{
+
 			hive.get(i).setType(types[rand() % 3]);
 
 			hive.get(i).setLifetime(lifetimes[rand() % 2]);

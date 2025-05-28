@@ -20,11 +20,11 @@ public:
 	void remove();
 	void remove(int index);
 	void clear();
-	bool isEmpty() const;
+	bool isEmpty();
 	Bee& get(int index);
 	void set(int index, Bee bee);
-	int getSize() const;
-	string toString() const;
+	int getSize();
+	string toString();
 
 	};
 

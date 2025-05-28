@@ -1,19 +1,14 @@
-#include "ArrayLIst.h"
+#include "ArrayList.h"
 
 class Hive
 {
 
 private:
 
-	Bee* list;
-	int count;
-	
-
+	ArrayList list;
 public:
 
 	Hive();
-	Hive(int count);
-	Hive(Bee* list, int count);
 	~Hive();
 
 	Bee& get(int index);

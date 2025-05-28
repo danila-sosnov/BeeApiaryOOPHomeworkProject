@@ -11,9 +11,13 @@ int main()
 	cout << "Input number of bees: ";
 	cin >> count;
 
-	Hive hive(count);
+	Hive hive;
 
-	
+	for (int i = 0; i < count; i++)
+	{
+		Bee bee;
+		hive.add(bee);
+	}
 
 	initializer.init(hive);
 

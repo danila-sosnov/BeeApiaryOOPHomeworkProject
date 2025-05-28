@@ -73,14 +73,26 @@ void ArrayList::remove()
 }
 void ArrayList::remove(int index)
 {
-	if (!isEmpty()) {
+	if (isEmpty() || index < 0 || index >= size)
+	{
+		return;
+	}
+
+	if (size == 1)
+	{
+		delete[] list;
+		list = nullptr;
+		size = 0;
+		return;
+	}
 		
 		Bee* temp = new Bee[size - 1];
 
 		for (int i = 0, j = 0; i < size; i++)
 		{
 			if (i != index) {
-				temp[j++] = list[i];
+				temp[j] = list[i];
+				j++;
 				
 			}
 		}
@@ -88,7 +100,7 @@ void ArrayList::remove(int index)
 		delete[] list;
 		list = temp;
 		size--;
-	}
+	
 }
 void ArrayList::clear()
 {
@@ -98,37 +110,29 @@ void ArrayList::clear()
 		size = 0;
 	}
 }
-bool ArrayList::isEmpty() const
+bool ArrayList::isEmpty() 
 {
 	return size == 0;
 }
 Bee& ArrayList::get(int index)
 {
 
-	if (index < 0 || index >= size)
-		throw std::out_of_range("Invalid index in ArrayList::get");
-	return list[index];
-	/*if (!isEmpty() && index >= 0 && index < size) {
+	if (!isEmpty() && index >= 0 && index < size) {
 		return list[index];
 	}
 
-	throw std::out_of_range("Invalid index in ArrayList::get");*/
 }
 void ArrayList::set(int index, Bee bee)
 {
-
-	if (index < 0 || index >= size)
-		throw std::out_of_range("Invalid index in ArrayList::set");
-	list[index] = bee;
-	/*if (!isEmpty() && index >= 0 && index < size) {
+	if (!isEmpty() && index >= 0 && index < size) {
 		list[index] = bee;
-	}*/
+	}
 }
-int ArrayList::getSize() const
+int ArrayList::getSize() 
 {
 	return size;
 }
-string ArrayList::toString() const
+string ArrayList::toString() 
 {
 	string s = "List is empty.";
 

@@ -24,6 +24,8 @@ public:
 	Bee(const Bee& bee);
 	~Bee();
 
+	Bee& operator=(const Bee& other);
+
 	string getType();
 	void setType(string type);
 	string getBehavior();
