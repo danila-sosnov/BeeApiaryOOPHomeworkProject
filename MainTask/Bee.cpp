@@ -157,7 +157,10 @@ void Bee::setDailyHoneyHistory(double* dailyHoneyHistory, int lifetime)
 	Bee::Bee(const Bee& bee) : Bee(bee.type, bee.behavior, bee.in_hive,
 		bee.health, bee.lifetime, bee.age)
 	{
-		
+		for (int i = 0; i < lifetime; i++)
+		{
+			dailyHoneyHistory[i] = bee.dailyHoneyHistory[i];
+		}
 	}
 
 	Bee::~Bee()

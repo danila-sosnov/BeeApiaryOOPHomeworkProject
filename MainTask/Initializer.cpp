@@ -1,8 +1,9 @@
 #include "Initializer.h"
+#include <ctime>
 
 	void Initializer::init(Hive& hive)
 	{
-		srand((unsigned)time(0));
+		srand(time(nullptr));
 
 		if (hive.getCount() <= 0 )
 		{
